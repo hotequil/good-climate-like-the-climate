@@ -6,7 +6,6 @@
     color: #fefefe;
     width: 100%;
     font-size: 1.25rem;
-    text-transform: uppercase;
 }
 
 @media(max-width: 800px){
@@ -17,4 +16,8 @@
 
 .content-time .title-time{
     width: fit-content;
+}
+
+.content-time .title-time::first-letter{
+    text-transform: uppercase;
 }

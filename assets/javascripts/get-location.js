@@ -1,126 +1,185 @@
-$(document).ready(function () {
-    getIp();
-});
-
 let myKey = '3b4ebde1';
 let userIP = undefined;
 let lat = undefined;
 let lon = undefined;
 let x = undefined;
+let pageLoader = undefined;
+let loader = undefined;
+let info = {};
+let errors = [];
+let errorMessage = undefined;
+let solutionFooter = undefined;
+let header = undefined;
+let main = undefined;
+let titleTime = undefined;
+let titleDegrees = undefined;
+let cityName = undefined;
+const conditions = [
+    'Tempestade forte',
+    'Tempestade tropical',
+    'Furacão',
+    'Tempestades severas',
+    'Tempestades',
+    'Misto de neve e chuva',
+    'Misto chuva e gelo',
+    'Misto neve e gelo',
+    'Geada fina',
+    'Chuviscos',
+    'Congelamento chuva',
+    'Alguns chuviscos',
+    'Alguns chuviscos',
+    'Neve baixa',
+    'Tempestade com neve',
+    'Ventania com neve',
+    'Neve',
+    'Granizo',
+    'Gelo',
+    'Poeira',
+    'Neblina',
+    'Tempestade de areia',
+    'Fumacento',
+    'Vento acentuado',
+    'Ventania',
+    'Tempo frio',
+    'Tempo nublado',
+    'Tempo limpo',
+    'Tempo nublado',
+    'Parcialmente nublado',
+    'Parcialmente nublado',
+    'Tempo limpo',
+    'Ensolarado',
+    'Estrelado',
+    'Ensolarado com muitas nuvens',
+    'Misto chuva e granizo',
+    'Ar quente',
+    'Tempestades isoladas',
+    'Trovoadas dispersas',
+    'Trovoadas dispersas',
+    'Chuvas esparsas',
+    'Pesados neve',
+    'Chuviscos com neve',
+    'Neve pesada',
+    'Sol com poucas nuvens',
+    'Chuva',
+    'Queda de neve',
+    'Tempestades isoladas',
+    'Serviço não disponível'
+];
+const conditionsSlug = [
+    'Tempestade',
+    'Neve',
+    'Granizo',
+    'Chuva',
+    'Neblina',
+    'Dia limpo',
+    'Noite limpa',
+    'Nublado',
+    'Nublado de dia',
+    'Nublado de noite',
+    'Dia',
+    'Noite'
+];
 
-function getIp() {
+$(document).ready(function () {
+    pageLoader = $('.page-loader');
+    loader = $('.loader');
+    errorMessage = $('.error.message');
+    solutionFooter = $('.solution-footer');
+    header = $('.header');
+    main = $('.main');
+    titleTime = $('.title-time');
+    titleDegrees = $('.title-degrees');
+    cityName = $('.city-name');
+
+    pageLoader.removeClass('display-none');
+
+    moment.locale('pt-BR');
+
+    putText(loader, 'Carregando');
+    elemFocus(loader);
+    getIp();
+});
+
+const getIp = function() {
     $.getJSON('https://api.ipify.org?format=jsonp&callback=?')
         .done(function(data) {
             userIP = data.ip;
+
+            putText(loader, 'Esperando permissão do usuário');
+            elemFocus(loader);
             getLocation();
         }).fail(function(error) {
-           //error
+            createError("Ocorreu uma falha ao obter o seu IP.", "<strong>Solução:</strong> recarregue a página.");
         });
 };
 
-function getLocation(){
+const getLocation = function(){
     if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(getPosition, showError);
+        navigator.geolocation.getCurrentPosition(getPosition, createError);
     } else{
-        x.innerHTML="Geolocalização não é suportada nesse browser.";
+        createError("A geolocalização não é suportada nesse navegador.", "<strong>Solução:</strong> atualize ou troque de navegador.");
     };
 };
 
-function getPosition(position){
+const getPosition = function(position){
     lat = position.coords.latitude;
     lon = position.coords.longitude;
 
-    $.getJSON(`https://api.hgbrasil.com/weather?key=${myKey}&lat=${lat}&log=${lon}&user_ip=${userIP}`)
+    let configRequest = { key: myKey, lat: lat, log: lon, user_ip: userIP, locale: 'pt', format: 'json-cors' };
+
+    $.get('https://api.hgbrasil.com/weather', configRequest)
         .done(function(data){
-            debugger
+            info = data;
 
+            putCurrentTime();
+            putText(loader, 'Exibindo informações');
+            elemFocus(loader);
+            showInfo(info);
+
+            setInterval(function(){
+                getPosition({ coords: { latitude: lat, longitude: lon } })
+            }, 60000);
         }).fail(function(error){
-            debugger
-
-            //error
+            createError("Ocorreu uma falha ao obter a sua localização.", "<strong>Solução:</strong> recarregue a página.");
         });
 };
 
-function showError(error){
-    switch(error.code){
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "Usuário rejeitou a solicitação de Geolocalização.";
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Localização indisponível.";
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "O tempo da requisição expirou.";
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "Algum erro desconhecido aconteceu.";
-            break;
-        default:
-            x.innerHTML = "Algum erro desconhecido aconteceu.";
+const createError = function(error, solutionError){
+    let solution = solutionError ? solutionError : '';
+
+    if(error.code){
+        switch(error.code){
+            case error.PERMISSION_DENIED:
+                errors.push("Você rejeitou a permissão de geolocalização.");
+                solution = "<strong>Solução:</strong> recarregue a página.";
+                break;
+            case error.POSITION_UNAVAILABLE:
+                errors.push("Ocorreu uma falha ao obter a sua geolocalização.");
+                solution = "<strong>Solução:</strong> recarregue a página.";
+                break;
+            case error.TIMEOUT:
+                errors.push("O tempo para obter a permissão de geolocalização expirou.");
+                solution = "<strong>Solução:</strong> recarregue a página.";
+                break;
+            case error.UNKNOWN_ERROR:
+                errors.push("Ocorreu uma falha desconhecida.");
+                solution = "<strong>Solução:</strong> recarregue a página.";
+                break;
+            default:
+                errors.push("Ocorreu uma falha desconhecida.");
+                solution = "<strong>Solução:</strong> recarregue a página.";
+        };
+    } else{
+        errors.push(error);
     };
+
+    putErrors(errors, true, false, solution);
+    elemFocus(errorMessage.find('.header'));
+    errors = [];
 };
 
-//condition_slug
-// storm - tempestade
-// snow - neve
-// hail - granizo
-// rain - chuva
-// fog - neblina
-// clear_day - dia limpo
-// clear_night - noite limpa
-// cloud - nublado
-// cloudly_day - nublado de dia
-// cloudly_night - nublado de noite
-// none_day - erro ao obter mas está de dia
-// none_night - erro ao obter mas está de noite
-
-//condition
-// 0 - Tempestade forte
-// 1 - Tempestade tropical
-// 2 - Furacão
-// 3 - Tempestades severas
-// 4 - Tempestades
-// 5 - Misto de neve e chuva
-// 6 - Misto chuva e gelo
-// 7 - Misto neve e gelo
-// 8 - Geada fina
-// 9 - Chuviscos
-// 10 - Congelamento chuva
-// 11 - Alguns chuviscos
-// 12 - Alguns chuviscos
-// 13 - Neve baixa
-// 14 - Tempestade com neve
-// 15 - Ventania com neve
-// 16 - Neve
-// 17 - Granizo
-// 18 - Gelo
-// 19 - Poeira
-// 20 - Neblina
-// 21 - Tempestade de areia
-// 22 - Fumacento
-// 23 - Vento acentuado
-// 24 - Ventania
-// 25 - Tempo frio
-// 26 - Tempo nublado
-// 27 - Tempo limpo
-// 28 - Tempo nublado
-// 29 - Parcialmente nublado
-// 30 - Parcialmente nublado
-// 31 - Tempo limpo
-// 32 - Ensolarado
-// 33 - Estrelado
-// 34 - Ensolarado com muitas nuvens
-// 35 - Misto chuva e granizo
-// 36 - Ar quente
-// 37 - Tempestades isoladas
-// 38 - Trovoadas dispersas
-// 39 - Trovoadas dispersas
-// 40 - Chuvas esparsas
-// 41 - Pesados neve
-// 42 - Chuviscos com neve
-// 43 - Neve pesada
-// 44 - Sol com poucas nuvens
-// 45 - Chuva
-// 46 - Queda de neve
-// 47 - Tempestades isoladas
-// 48 - Serviço não disponível
+const showInfo = function(data, timeout){
+    setTimeout(function(){
+        putInfo(data);
+    }, timeout || 2000)
+};

@@ -1,9 +1,15 @@
 .ui.dimmer.page-loader{
     color: #fefefe !important;
     background-color: #1b1b1b;
+    opacity: 1;
+    transition: opacity 1s;
 }
 
 
 .ui.dimmer .ui.loader:after{
     border-color: #fefefe transparent transparent;
+}
+
+.solution-footer{
+    margin-top: 1.5em;
 }
