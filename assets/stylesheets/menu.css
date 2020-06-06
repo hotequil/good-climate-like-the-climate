@@ -1,4 +1,4 @@
-.menu.menu-climate{
+.ui.item.menu.menu-climate{
     border: 0;
     border-top: 1px solid rgba(34,36,38,.1);
     border-radius: 0;
@@ -14,22 +14,17 @@
 }
 
 .menu-climate .reveal, .menu-climate .logo{
-    max-width: 35px;
-    max-height: 35px;
+    max-width: 50px;
+    max-height: 50px;
 }
 
-.menu-time{
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fefefe;
-    border-bottom: 1px solid rgba(34,36,38,.1);
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.10);
-    display: flex;
-    align-items: center;
-    padding: 4px;
+@media(max-width: 800px){
+    .menu-climate .reveal, .menu-climate .logo{
+        max-width: 35px;
+        max-height: 35px;
+    }
 }
 
-.menu-time .title-time{
-    font-size: 14px;
+.ui.item.menu.menu-climate .item{
+    color: #1b1b1b;
 }
