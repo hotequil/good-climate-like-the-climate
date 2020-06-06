@@ -106,8 +106,6 @@ const getIp = function() {
         .done(function(data) {
             userIP = data.ip;
 
-            putText(loader, 'Esperando permissão do usuário');
-            elemFocus(loader);
             getLocation();
         }).fail(function(error) {
             createError("Ocorreu uma falha ao obter o seu IP.", "<strong>Solução:</strong> recarregue a página.");
@@ -117,6 +115,8 @@ const getIp = function() {
 const getLocation = function(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(getPosition, createError);
+        putText(loader, 'Esperando permissão do usuário');
+        elemFocus(loader);
     } else{
         createError("A geolocalização não é suportada nesse navegador.", "<strong>Solução:</strong> atualize ou troque de navegador.");
     };
