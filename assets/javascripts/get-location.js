@@ -130,7 +130,7 @@ const getPosition = function(position, a ,b){
     lat = position.coords.latitude;
     lon = position.coords.longitude;
 
-    let configRequest = { key: myKey, lat: lat, log: lon, user_ip: userIP, locale: 'pt', format: 'json-cors' };
+    let configRequest = { key: myKey, lat: lat, lon: lon, user_ip: userIP, locale: 'pt', format: 'json-cors' };
 
     $.get('https://api.hgbrasil.com/weather', configRequest)
         .done(function(data){
