@@ -115,6 +115,7 @@ const getIp = function() {
 const getLocation = function(){
     if (navigator.geolocation){
         navigator.geolocation.getCurrentPosition(getPosition, createError);
+        
         putText(loader, 'Esperando permissão do usuário');
         elemFocus(loader);
     } else{
@@ -122,7 +123,10 @@ const getLocation = function(){
     };
 };
 
-const getPosition = function(position){
+const getPosition = function(position, a ,b){
+    putText(loader, 'Exibindo informações');
+    elemFocus(loader);
+
     lat = position.coords.latitude;
     lon = position.coords.longitude;
 
@@ -133,8 +137,6 @@ const getPosition = function(position){
             info = data;
 
             putCurrentTime();
-            putText(loader, 'Exibindo informações');
-            elemFocus(loader);
             showInfo(info);
 
             setInterval(function(){
