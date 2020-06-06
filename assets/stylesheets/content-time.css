@@ -8,12 +8,6 @@
     font-size: 1.25rem;
 }
 
-@media(max-width: 800px){
-    .content-time{
-        font-size: 1rem;
-    }
-}
-
 .content-time .title-time{
     width: fit-content;
 }

@@ -35,7 +35,11 @@ const putInfo = function(data){
         pageLoader.addClass('display-none');
     }, 1000);
 
-    elemFocus(titleDegrees);
+    if(!firstGet){
+        elemFocus(titleDegrees);
+
+        firstGet = true;
+    };
 };
 
 const putCurrentTime = function(){

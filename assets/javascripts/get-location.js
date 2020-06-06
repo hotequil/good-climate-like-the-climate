@@ -1,3 +1,4 @@
+let firstGet = false;
 let myKey = '3b4ebde1';
 let userIP = undefined;
 let lat = undefined;
