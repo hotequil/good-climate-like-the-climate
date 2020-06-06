@@ -2,12 +2,6 @@ body{
     font-size: 24px;
 }
 
-@media(max-width: 800px){
-    body {
-        font-size: 20px;
-    }
-}
-
 ::selection {
     background-color: rgba(0, 145, 234, .65);
     color: #fefefe;
@@ -18,7 +12,7 @@ body{
     text-shadow: none;
 }
 
-:focus {
+*:focus {
     outline: 5px auto #0091ea !important;
     -moz-outline: 5px auto #0091ea !important;
     -webkit-outline: 5px auto #0091ea !important;
@@ -35,6 +29,18 @@ body{
 
 ::-webkit-scrollbar-track {
     background-color: #fefefe;
+}
+
+@media(max-width: 800px){
+    body {
+        font-size: 20px;
+    }
+
+    *:focus {
+        outline: 0 !important;
+        -moz-outline: 0 !important;
+        -webkit-outline: 0 !important;
+    }
 }
 
 .main{

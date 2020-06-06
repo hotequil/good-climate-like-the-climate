@@ -12,13 +12,18 @@
         <link rel="stylesheet" href="assets/stylesheets/menu.css">
         <link rel="stylesheet" href="assets/stylesheets/content-degrees.css">
         <link rel="stylesheet" href="assets/stylesheets/content-time.css">
+        <link rel="stylesheet" href="assets/stylesheets/page-loader.css">
 
         <script type="text/javascript" src="dependencies/jquery/jquery-3.5.1.min.js"></script>
         <script type="text/javascript" src="dependencies/semantic-ui/semantic.min.js"></script>
 
+        <script type="text/javascript" src="assets/javascripts/get-location.js"></script>
         <script type="text/javascript" src="assets/javascripts/calculate-main.js"></script>
     </head>
     <body>
+        <div class="ui active dimmer page-loader">
+            <div tabindex="0" class="ui massive text loader">Esperando permissão do usuário</div>
+        </div>
         <header class="header">
             <nav class="ui five item menu menu-climate">
                 <a tabindex="0" class="item" href="https://github.com/hotequil" target="_blank">
@@ -44,7 +49,7 @@
                 </section>
                 <section class="content-degrees">
                     <div class="content-degrees-principal-children">
-                        <h1 tabindex="0" class="ui header title-degrees">70</h1>
+                        <h1 tabindex="0" class="ui header title-degrees">26</h1>
                     </div>
                     <div class="content-degrees-children">
                         <p tabindex="0" class="city-name">Gaspar, SC</p>
@@ -52,9 +57,9 @@
                 </section>
             </div>
 
-            <div class="today"></div>
-            <div class="week"></div>
-            <div class="about"></div>
+            <div style="display: none" class="today"></div>
+            <div style="display: none" class="week"></div>
+            <div style="display: none" class="about"></div>
         </main>
     </body>
 </html>

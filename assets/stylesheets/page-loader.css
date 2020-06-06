@@ -1,0 +1,9 @@
+.ui.dimmer.page-loader{
+    color: #fefefe !important;
+    background-color: #1b1b1b;
+}
+
+
+.ui.dimmer .ui.loader:after{
+    border-color: #fefefe transparent transparent;
+}

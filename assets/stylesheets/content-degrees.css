@@ -14,6 +14,10 @@
     margin: 0;
 }
 
+.content-degrees-principal-children .header.title-degrees::after{
+    content: "°";
+}
+
 .content-degrees-children{
     display: flex;
     align-items: center;
