@@ -1,0 +1,35 @@
+.menu.menu-climate{
+    border: 0;
+    border-top: 1px solid rgba(34,36,38,.1);
+    border-radius: 0;
+    position: fixed;
+    bottom: 0;
+    margin: 0;
+    box-shadow: 0 -2px 2px 0 rgba(0,0,0,.10);
+    background-color: #fefefe;
+}
+
+.menu-climate .reveal{
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+}
+
+.menu-climate .reveal, .menu-climate .logo{
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.menu-time{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fefefe;
+    border-bottom: 1px solid rgba(34,36,38,.1);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.10);
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.menu-time .title-time{
+    font-size: 14px;
+}
