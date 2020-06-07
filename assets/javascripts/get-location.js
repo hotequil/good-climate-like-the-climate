@@ -121,7 +121,7 @@ const getLocation = function(){
         putText(loader, 'Esperando permissão do usuário');
         elemFocus(loader);
     } else{
-        createError("A geolocalização não é suportada nesse navegador.", "<strong>Solução:</strong> atualize ou troque de navegador.");
+        createError("A geolocalização não é suportada nesse navegador.", "<strong>Solução:</strong> atualize seu navegador ou troque de navegador.");
     };
 };
 
@@ -156,7 +156,7 @@ const createError = function(error, solutionError){
         switch(error.code){
             case error.PERMISSION_DENIED:
                 errors.push("Você rejeitou a permissão de geolocalização.");
-                solution = "<strong>Solução:</strong> recarregue a página.";
+                solution = "<strong>Solução:</strong> permita o uso de localização no seu navegador e recarregue a página.";
                 break;
             case error.POSITION_UNAVAILABLE:
                 errors.push("Ocorreu uma falha ao obter a sua geolocalização.");
