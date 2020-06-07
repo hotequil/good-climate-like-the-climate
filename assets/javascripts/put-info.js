@@ -40,6 +40,7 @@ const putInfo = function(data){
         calculateMain();
         initAccordions();
         keydownCityName();
+        clickCityName();
 
         elemFocus(titleDegrees);
 

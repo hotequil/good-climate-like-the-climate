@@ -23,6 +23,7 @@
 .content-time .title-time{
     width: fit-content;
     margin-left: 6px;
+    font-size: .85em;
 }
 
 .content-time .title-time::first-letter{

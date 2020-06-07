@@ -14,3 +14,14 @@ const keydownCityName = function(){
     });
 };
 
+const clickCityName = function(){
+    let accordion = $('.content-time .ui.accordion');
+
+    cityName.click(function(evt){
+        setTimeout(function(){
+            if(accordion.find('.content').hasClass('active')){
+                elemFocus(titleTime);
+            };
+        }, 500);
+    });
+};
