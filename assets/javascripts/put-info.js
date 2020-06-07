@@ -44,6 +44,6 @@ const putInfo = function(data){
 
 const putCurrentTime = function(){
     setInterval(function(){
-        titleTime.text(`${moment().format('dddd')}, ${moment().format('LL')} às ${moment().format('LTS')}`);
+        titleTime.text(`${moment().format('dddd')}, dia ${moment().format('LL')} às ${moment().format('LTS')}`);
     }, 500);
 };
