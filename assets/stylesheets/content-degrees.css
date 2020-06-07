@@ -9,13 +9,9 @@
     font-size: 8em;
     line-height: 1;
     position: relative;
-    text-shadow: 2px 2px 3px rgba(0,0,0,.25);
+    text-shadow: 1px 1px 3px rgba(255,255,255,.25);
     display: block;
     margin: 0;
-}
-
-.content-degrees-principal-children .header.title-degrees::after{
-    content: "°";
 }
 
 .content-degrees-children{
@@ -24,8 +20,10 @@
     justify-content: center;
 }
 
-.content-degrees-children .city-name{
+.content-degrees-children .max-and-min{
     text-align: center;
     color: #fefefe;
     font-size: 1.25em;
+    text-shadow: 1px 1px 2px rgba(255,255,255,.25);
+    font-weight: 600;
 }

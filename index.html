@@ -27,6 +27,7 @@
         <script type="text/javascript" src="dependencies/moment/moment-with-locales.min.js"></script>
 
         <script src="assets/javascripts/focus.js"></script>
+        <script src="assets/javascripts/events.js"></script>
         <script src="assets/javascripts/put-info.js"></script>
         <script src="assets/javascripts/get-location.js"></script>
         <script src="assets/javascripts/calculate-main.js"></script>
@@ -44,17 +45,17 @@
         <header class="header display-none">
 
             <nav class="ui five item menu menu-climate">
-                <a tabindex="0" class="item" href="https://github.com/hotequil" target="_blank">
+                <a aria-describedby="Redirecionamento para o GitHub do criador do WebApp" tabindex="0" class="item" href="https://github.com/hotequil" target="_blank">
                     <div class="ui move reveal">
                         <div class="visible content">
-                            <img class="logo" src="images/logo.svg" alt="GitHub do criado do WebApp">
+                            <img class="logo" src="images/logo.svg" alt="GitHub do criador do WebApp">
                         </div>
                         <div class="hidden content">
                             <img class="logo" src="images/hotequi.png" alt="João Paulo Hotequil, criador do WebApp">
                         </div>
                     </div>
                 </a>
-                <a tabindex="0" class="item active">Hoje</a>
+                <a aria-describedby="Primeiro item do menu" tabindex="0" class="item active">Hoje</a>
                 <a class="item disabled">Detalhes</a>
                 <a class="item disabled">Semana</a>
                 <a class="item disabled">Sobre</a>
@@ -65,16 +66,22 @@
 
             <div class="today">
                 <section class="content-time">
-                    <div>
-                        <p tabindex="0" class="title-time"></p>
+                    <div class="ui accordion">
+                        <div class="title">
+                            <i class="dropdown icon"></i>
+                            <p tabindex="0" class="city-name" aria-describedby="Nome da cidade que você está (pressione a tecla enter para visualizar o dia da semana, a data completa e o horário exato)"></p>
+                        </div>
+                        <div class="content">
+                            <p tabindex="0" class="title-time hidden"></p>
+                        </div>
                     </div>
                 </section>
                 <section class="content-degrees">
                     <div class="content-degrees-principal-children">
-                        <h1 tabindex="1" class="ui header title-degrees"></h1>
+                        <h1 tabindex="1" class="ui header title-degrees" aria-describedby="Temperatura atual"></h1>
                     </div>
                     <div class="content-degrees-children">
-                        <p tabindex="2" class="city-name"></p>
+                        <p tabindex="2" class="max-and-min" aria-describedby="Temperatura mínima e máxima"></p>
                     </div>
                 </section>
             </div>

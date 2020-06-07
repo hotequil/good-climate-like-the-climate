@@ -1,6 +1,4 @@
 $(document).ready(function () {
-    calculateMain();
-
     $(window).resize(calculateMain);
 });
 

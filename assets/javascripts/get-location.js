@@ -15,6 +15,7 @@ let main = undefined;
 let titleTime = undefined;
 let titleDegrees = undefined;
 let cityName = undefined;
+let maxAndMin = undefined;
 const conditions = [
     'Tempestade forte',
     'Tempestade tropical',
@@ -91,6 +92,7 @@ $(document).ready(function () {
     titleTime = $('.title-time');
     titleDegrees = $('.title-degrees');
     cityName = $('.city-name');
+    maxAndMin = $('.max-and-min');
 
     pageLoader.removeClass('display-none');
 
@@ -184,5 +186,5 @@ const createError = function(error, solutionError){
 const showInfo = function(data, timeout){
     setTimeout(function(){
         putInfo(data);
-    }, timeout || 2000)
+    }, timeout || 1000)
 };
