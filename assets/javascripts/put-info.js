@@ -41,6 +41,8 @@ const putInfo = function(data){
         initAccordions();
         keydownCityName();
         clickCityName();
+        closeAccordion();
+        blurAccordion();
 
         elemFocus(titleDegrees);
 

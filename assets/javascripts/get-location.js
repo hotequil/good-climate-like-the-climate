@@ -12,10 +12,12 @@ let errorMessage = undefined;
 let solutionFooter = undefined;
 let header = undefined;
 let main = undefined;
+let title = undefined;
 let titleTime = undefined;
 let titleDegrees = undefined;
 let cityName = undefined;
 let maxAndMin = undefined;
+let accordion = undefined;
 const conditions = [
     'Tempestade forte',
     'Tempestade tropical',
@@ -89,10 +91,12 @@ $(document).ready(function () {
     solutionFooter = $('.solution-footer');
     header = $('.header');
     main = $('.main');
+    title = $('.title');
     titleTime = $('.title-time');
     titleDegrees = $('.title-degrees');
     cityName = $('.city-name');
     maxAndMin = $('.max-and-min');
+    accordion = $('.content-time .ui.accordion');
 
     pageLoader.removeClass('display-none');
 

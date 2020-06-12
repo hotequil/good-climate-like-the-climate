@@ -1,7 +1,5 @@
 const keydownCityName = function(){
-    let accordion = $('.content-time .ui.accordion');
-
-    cityName.keydown(function(evt){
+    $(title, cityName).keydown(function(evt){
         if(evt.keyCode === 13){
             accordion.accordion('toggle', 0);
 
@@ -15,13 +13,26 @@ const keydownCityName = function(){
 };
 
 const clickCityName = function(){
-    let accordion = $('.content-time .ui.accordion');
-
-    cityName.click(function(evt){
+    $(title, cityName).click(function(evt){
         setTimeout(function(){
             if(accordion.find('.content').hasClass('active')){
                 elemFocus(titleTime);
             };
         }, 500);
+    });
+};
+
+const closeAccordion = () => {
+    $(document).click(evt => {
+        if(!$(evt.target).hasClass('title-time') && titleTime.hasClass('visible')){
+            accordion.accordion('close', 0);
+            elemFocus(cityName);
+        };
+    });
+};
+
+const blurAccordion = () => {
+    titleTime.blur(function(evt){
+        accordion.accordion('close', 0);
     });
 };
