@@ -68,3 +68,14 @@ body{
     justify-content: center;
     overflow-y: auto;
 }
+
+.ui.error.message{
+    margin: 0;
+    box-shadow: 0 3px 5px -1px rgba(145,45,43,.2), 0 6px 10px 0 rgba(145,45,43,.14), 0 1px 18px 0 rgba(145,45,43,.12) !important;
+}
+
+.today{
+    opacity: 1;
+    transition: opacity .5s;
+    display: block;
+}
