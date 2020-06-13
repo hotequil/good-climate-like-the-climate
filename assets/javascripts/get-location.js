@@ -1,5 +1,5 @@
 let firstGet = false;
-let myKey = '44ee7251'; //3b4ebde1
+let myKey = '3b4ebde1'; //44ee7251
 let userIP = undefined;
 let lat = undefined;
 let lon = undefined;
