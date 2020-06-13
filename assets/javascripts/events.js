@@ -36,3 +36,9 @@ const blurAccordion = () => {
         accordion.accordion('close', 0);
     });
 };
+
+const dropdownClick = () => {
+    $('.title .dropdown.icon').click(function(){
+        elemFocus(cityName);
+    });
+};

@@ -79,3 +79,10 @@ body{
     transition: opacity .5s;
     display: block;
 }
+
+.details{
+    opacity: 1;
+    transition: opacity .5s;
+    display: block;
+    color: #fefefe;
+}

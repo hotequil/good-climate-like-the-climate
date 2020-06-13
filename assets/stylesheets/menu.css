@@ -10,6 +10,18 @@
     z-index: 1;
 }
 
+.ui.item.menu-climate .item{
+    transition: background-color .25s !important;
+}
+
+.ui.item.menu-climate .item:focus:not(.active):not(.disabled), .menu-climate .item:hover:not(.active):not(.disabled){
+    background-color: #f8f8f8 !important;
+}
+
+.ui.item.menu-climate .item:active:not(.disabled){
+    background-color: #f1f1f1 !important;
+}
+
 .menu-climate .reveal{
     box-shadow: 1px 1px 2px rgba(0,0,0,0.25);
 }
@@ -28,4 +40,5 @@
 
 .ui.item.menu.menu-climate .item{
     color: #1b1b1b;
+    cursor: pointer;
 }

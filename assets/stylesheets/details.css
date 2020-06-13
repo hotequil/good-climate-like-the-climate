@@ -1,0 +1,67 @@
+.details{
+    padding: 0 1em;
+}
+
+.details .ui.statistics{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em 1.5em;
+    margin: 0;
+}
+
+@media(max-width: 800px){
+    .details{
+        padding: 0 .5em;
+    }
+
+    .details .ui.statistics{
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1em .5em;
+    }
+}
+
+.ui.statistics:after{
+    content: none;
+}
+
+.details .ui.statistics .statistic{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.details .ui.statistics .statistic .value{
+    min-height: 0;
+    margin: 0 0 .25em 0;
+    text-transform: none;
+}
+
+.details .ui.statistics .statistic .value::first-letter{
+    text-transform: uppercase;
+}
+
+.details .ui.statistics .statistic .label{
+    font-size: .75em;
+    text-transform: none;
+    margin: 0;
+}
+
+.details .ui.statistics .statistic .value, .details .ui.statistics .statistic .label{
+    color: #fefefe;
+    line-height: 1;
+}
+
+.period{
+    margin-bottom: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.period .title-period{
+    text-transform: uppercase;
+    font-size: 1.75em;
+}

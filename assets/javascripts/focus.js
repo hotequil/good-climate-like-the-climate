@@ -1,3 +1,3 @@
-const elemFocus = function(elem){
-    elem.focus();
+const elemFocus = function(elem, timeout){
+    setTimeout(() => elem.focus(), timeout || 250);
 };

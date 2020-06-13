@@ -24,17 +24,8 @@ const putErrors = function(errors, show, hide, solution){
 };
 
 const putInfo = function(data){
-    titleDegrees.text(`${data.results.temp}°`);
-    cityName.text(data.results.city);
-    maxAndMin.text(`${data.results.forecast[0].min}° e ${data.results.forecast[0].max}°`);
-
-    header.removeClass('display-none');
-    main.removeClass('display-none');
-    pageLoader.addClass('opacity-none');
-
-    setTimeout(function(){
-        pageLoader.addClass('display-none');
-    }, 1000);
+    contentsOnView(data);
+    showViews();
 
     if(!firstGet){
         calculateMain();
@@ -43,8 +34,8 @@ const putInfo = function(data){
         clickCityName();
         closeAccordion();
         blurAccordion();
-
-        elemFocus(titleDegrees);
+        dropdownClick();
+        choosePage();
 
         firstGet = true;
     };

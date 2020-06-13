@@ -1,5 +1,5 @@
 let firstGet = false;
-let myKey = '3b4ebde1';
+let myKey = '44ee7251'; //3b4ebde1
 let userIP = undefined;
 let lat = undefined;
 let lon = undefined;
@@ -18,71 +18,87 @@ let titleDegrees = undefined;
 let cityName = undefined;
 let maxAndMin = undefined;
 let accordion = undefined;
-const conditions = [
-    'Tempestade forte',
-    'Tempestade tropical',
-    'Furacão',
-    'Tempestades severas',
-    'Tempestades',
-    'Misto de neve e chuva',
-    'Misto chuva e gelo',
-    'Misto neve e gelo',
-    'Geada fina',
-    'Chuviscos',
-    'Congelamento chuva',
-    'Alguns chuviscos',
-    'Alguns chuviscos',
-    'Neve baixa',
-    'Tempestade com neve',
-    'Ventania com neve',
-    'Neve',
-    'Granizo',
-    'Gelo',
-    'Poeira',
-    'Neblina',
-    'Tempestade de areia',
-    'Fumacento',
-    'Vento acentuado',
-    'Ventania',
-    'Tempo frio',
-    'Tempo nublado',
-    'Tempo limpo',
-    'Tempo nublado',
-    'Parcialmente nublado',
-    'Parcialmente nublado',
-    'Tempo limpo',
-    'Ensolarado',
-    'Estrelado',
-    'Ensolarado com muitas nuvens',
-    'Misto chuva e granizo',
-    'Ar quente',
-    'Tempestades isoladas',
-    'Trovoadas dispersas',
-    'Trovoadas dispersas',
-    'Chuvas esparsas',
-    'Pesados neve',
-    'Chuviscos com neve',
-    'Neve pesada',
-    'Sol com poucas nuvens',
-    'Chuva',
-    'Queda de neve',
-    'Tempestades isoladas',
-    'Serviço não disponível'
-];
-const conditionsSlug = [
-    'Tempestade',
-    'Neve',
-    'Granizo',
-    'Chuva',
-    'Neblina',
-    'Dia limpo',
-    'Noite limpa',
-    'Nublado',
-    'Nublado de dia',
-    'Nublado de noite',
-    'Dia',
-    'Noite'
-];
+let currentPage = undefined;
+let today = undefined;
+let details = undefined;
+let week = undefined;
+let about = undefined;
+let menuClimate = undefined;
+let elemsMenu = [];
+const pages = ['hoje', 'detalhes', 'semana', 'sobre'];
+let sunrise = undefined;
+let sunset = undefined;
+let windSpeedy = undefined;
+let humidity = undefined;
+let description = undefined;
+let currently = undefined;
+let conditionSlug = undefined;
+let conditionCode = undefined;
+const conditions = {
+    0: 'Tempestade forte',
+    1: 'Tempestade tropical',
+    2: 'Furacão',
+    3: 'Tempestades severas',
+    4: 'Tempestades',
+    5: 'Misto de neve e chuva',
+    6: 'Misto chuva e gelo',
+    7: 'Misto neve e gelo',
+    8: 'Geada fina',
+    9: 'Chuviscos',
+    10: 'Congelamento chuva',
+    11: 'Alguns chuviscos',
+    12: 'Alguns chuviscos',
+    13: 'Neve baixa',
+    14: 'Tempestade com neve',
+    15: 'Ventania com neve',
+    16: 'Neve',
+    17: 'Granizo',
+    18: 'Gelo',
+    19: 'Poeira',
+    20: 'Neblina',
+    21: 'Tempestade de areia',
+    22: 'Fumacento',
+    23: 'Vento acentuado',
+    24: 'Ventania',
+    25: 'Tempo frio',
+    26: 'Tempo nublado',
+    27: 'Tempo limpo',
+    28: 'Tempo nublado',
+    29: 'Parcialmente nublado',
+    30: 'Parcialmente nublado',
+    31: 'Tempo limpo',
+    32: 'Ensolarado',
+    33: 'Estrelado',
+    34: 'Ensolarado com muitas nuvens',
+    35: 'Misto chuva e granizo',
+    36: 'Ar quente',
+    37: 'Tempestades isoladas',
+    38: 'Trovoadas dispersas',
+    39: 'Trovoadas dispersas',
+    40: 'Chuvas esparsas',
+    41: 'Pesados neve',
+    42: 'Chuviscos com neve',
+    43: 'Neve pesada',
+    44: 'Sol com poucas nuvens',
+    45: 'Chuva',
+    46: 'Queda de neve',
+    47: 'Tempestades isoladas',
+    48: 'Serviço não disponível'
+};
+const conditionsSlug = {
+    storm: 'Tempestade',
+    snow: 'Neve',
+    hail: 'Granizo',
+    rain: 'Chuva',
+    fog: 'Neblina',
+    clear_day: 'Dia limpo',
+    clear_night: 'Noite limpa',
+    cloud: 'Nublado',
+    cloudly_day: 'Nublado de dia',
+    cloudly_night: 'Nublado de noite',
+    none_day: 'Dia',
+    none_night: 'Noite'
+};
 
 $(document).ready(function () {
     pageLoader = $('.page-loader');
@@ -97,6 +113,20 @@ $(document).ready(function () {
     cityName = $('.city-name');
     maxAndMin = $('.max-and-min');
     accordion = $('.content-time .ui.accordion');
+    today = $('.today');
+    details = $('.details');
+    week = $('.week');
+    about = $('.about');
+    elemsMenu = [today, details, week, about];
+    menuClimate = $('.menu-climate a[href^="#"]');
+    sunrise = $('.sunrise');
+    sunset = $('.sunset');
+    windSpeedy = $('.wind-speedy');
+    humidity = $('.humidity');
+    description = $('.description');
+    currently = $('.period');
+    conditionSlug = $('.condition-slug');
+    conditionCode = $('.condition-code');
 
     pageLoader.removeClass('display-none');
 
