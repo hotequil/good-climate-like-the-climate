@@ -83,8 +83,6 @@ const createTable = data => {
     unstackableTable.find('tbody').html('');
 
     data.forEach((item, index) => {
-        if(index <= 7){
-            unstackableTable.find('tbody').append(`<tr><td tabindex="0" data-label="Data">${item.date} (${item.weekday}.)</td><td tabindex="0" data-label="Máx.">${item.max}°</td><td tabindex="0" data-label="Mín.">${item.min}°</td><td tabindex="0" data-label="Descrição">${item.description} (${conditionsSlug[item.condition]})</td></tr>`);
-        };
+        unstackableTable.find('tbody').append(`<tr><td tabindex="0" data-label="Data">${item.date} (${item.weekday}.)</td><td tabindex="0" data-label="Mín.">${item.min}°</td><td tabindex="0" data-label="Máx.">${item.max}°</td><td tabindex="0" data-label="Descrição">${item.description} (${conditionsSlug[item.condition]})</td></tr>`);
     });
 };

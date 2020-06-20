@@ -28,7 +28,7 @@ const putInfo = function(data){
     showViews();
 
     if(!firstGet){
-        calculateMain();
+        calculate();
         initAccordions();
         keydownCityName();
         clickCityName();

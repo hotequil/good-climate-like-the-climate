@@ -4,11 +4,12 @@
 
 .ui.unstackable.table{
     display: block;
+    overflow: auto;
     transition: opacity .5s;
 }
 
 .ui.unstackable.table thead, .ui.unstackable.table tbody{
-    font-size: .85em;
+    font-size: .9em;
 }
 
 .ui.unstackable.table tr th, .ui.unstackable.table tr td{
@@ -16,31 +17,12 @@
     vertical-align: middle;
 }
 
-@media(max-width: 1200px){
+@media(max-width: 1000px){
     .ui.unstackable.table thead, .ui.unstackable.table tbody{
         font-size: .8em;
     }
 
     .ui.unstackable.table tr th, .ui.unstackable.table tr td{
-        padding: .35em .75em;
-    }
-}
-
-
-@media(max-width: 1000px){
-    .ui.unstackable.table thead, .ui.unstackable.table tbody{
-        font-size: .75em;
-    }
-
-    .ui.unstackable.table tr th, .ui.unstackable.table tr td{
         padding: .25em .5em;
-    }
-}
-
-@media(max-width: 600px){
-    .ui.unstackable.table{
-        overflow: auto;
-        max-height: 400px;
-        display: block;
     }
 }
