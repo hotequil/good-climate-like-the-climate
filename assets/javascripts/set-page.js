@@ -17,7 +17,10 @@ const choosePage = (page) => {
             currentPage = page;
         };
 
-        elemsMenu.forEach(item => item.addClass('opacity-none'));
+        unstackableTable.addClass('opacity-none');
+        elemsMenu.forEach(item => {
+            if(!item.hasClass('week')) item.addClass('opacity-none')
+        });
         menuClimate.removeClass('active');
 
         $('a[href="#' + currentPage + '"]').addClass('active');
@@ -35,6 +38,8 @@ const choosePage = (page) => {
                     details.removeClass('opacity-none display-none');
                     break;
                 case 'semana':
+                    elemFocus(unstackableTable.find('th:first-child'));
+                    unstackableTable.removeClass('opacity-none');
                     week.removeClass('opacity-none display-none');
                     break;
                 case 'sobre':
@@ -71,4 +76,15 @@ const contentsOnView = data => {
     humidity.find('.value').text(`${data.results.humidity || 0}%` || "Sem informação");
     conditionSlug.find('.value').text(conditionsSlug[data.results.condition_slug] || "Sem informação");
     conditionCode.find('.value').text(conditions[data.results.condition_code] || data.results.description || "Sem informação");
+    createTable(data.results.forecast);
+};
+
+const createTable = data => {
+    unstackableTable.find('tbody').html('');
+
+    data.forEach((item, index) => {
+        if(index <= 7){
+            unstackableTable.find('tbody').append(`<tr><td tabindex="0" data-label="Data">${item.date} (${item.weekday}.)</td><td tabindex="0" data-label="Máx.">${item.max}°</td><td tabindex="0" data-label="Mín.">${item.min}°</td><td tabindex="0" data-label="Descrição">${item.description} (${conditionsSlug[item.condition]})</td></tr>`);
+        };
+    });
 };
