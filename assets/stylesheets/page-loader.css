@@ -7,7 +7,12 @@
 
 
 .ui.dimmer .ui.loader:after{
-    border-color: #fefefe transparent transparent;
+    border-color: #fefefe transparent transparent !important;
+}
+
+.ui.massive.text.loader{
+    color: #fefefe !important;
+    text-shadow: 1px 1px 3px rgba(254,254,254,.25) !important;
 }
 
 .solution-footer{

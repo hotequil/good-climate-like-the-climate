@@ -20,6 +20,10 @@
     color: #fefefe;
 }
 
+.city-name, .title .dropdown.icon, .content .title-time{
+    text-shadow: 1px 1px 3px rgba(254,254,254,.25);
+}
+
 .content-time .title-time{
     width: fit-content;
     margin-left: 6px;
