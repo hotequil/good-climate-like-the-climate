@@ -19,5 +19,5 @@ function calculateTable() {
     let table = $('.unstackable.table');
     let main = $('.main');
 
-    table.css('max-height', `calc(${main.outerHeight() + 'px'} - 2em)`);
+    table.css('max-height', `calc(${main.outerHeight() + 'px'} - 4em)`);
 };

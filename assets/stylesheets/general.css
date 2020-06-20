@@ -19,12 +19,12 @@ body{
 }
 
 ::selection {
-    background-color: rgba(0, 145, 234, .65);
+    background-color: rgba(0, 145, 234, .85);
     color: #fefefe;
 }
 
 ::selection {
-    background-color: rgba(0, 145, 234, .65);
+    background-color: rgba(0, 145, 234, .85);
     text-shadow: none;
 }
 
