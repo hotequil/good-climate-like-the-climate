@@ -34,16 +34,17 @@ const choosePage = (page) => {
                     elemFocus(titleDegrees);
                     break;
                 case 'detalhes':
-                    elemFocus(currently.find('.title-period'));
                     details.removeClass('opacity-none display-none');
+                    elemFocus(currently.find('.title-period'));
                     break;
                 case 'semana':
-                    elemFocus(unstackableTable.find('th:first-child'));
-                    unstackableTable.removeClass('opacity-none');
                     week.removeClass('opacity-none display-none');
+                    unstackableTable.removeClass('opacity-none');
+                    elemFocus(unstackableTable.find('th:first-child'));
                     break;
                 case 'sobre':
                     about.removeClass('opacity-none display-none');
+                    elemFocus($('.header.link-header'));
                     break;
 
             };
