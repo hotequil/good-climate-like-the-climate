@@ -1,0 +1,53 @@
+.ui.card.about .content .header.link-header{
+    font-size: .9em;
+    color: #1b1b1b;
+    transition: color .25s;
+    line-height: 1 !important;
+    margin-bottom: .25em;
+}
+
+.ui.card.about .content .header.link-header:hover, .ui.card.about .content .header.link-header:focus, .ui.card.about .content .header.link-header:active{
+    color: #0091ea;
+}
+
+.ui.card.about, .about{
+    transition: opacity .5s;
+}
+
+.ui.card.about .content .meta .description{
+    font-size: .75em;
+    color: #757575;
+    line-height: 1.3;
+}
+
+.ui.card.about .content .meta .description .link-description{
+    color: #0091ea;
+    transition: opacity .25s;
+}
+
+.ui.card.about .content .meta .description .link-description:hover, .ui.card.about .content .meta .description .link-description:focus{
+    opacity: .85;
+}
+
+.ui.card.about .content .meta .description .link-description:active{
+    opacity: .75;
+}
+
+.link-block{
+    display: block;
+}
+
+.ui.card>.content, .ui.cards>.card>.content{
+    padding: .7em;
+}
+
+.ui .slide .masked .reveal .image .link-block, .ui.card>:first-child, .ui.cards>.card>:first-child{
+    border-radius: 0 !important;
+}
+
+.ui.card, .ui.cards>.card{
+    border-radius: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 3px 0 rgba(254,254,254,.2), 0 1px 3px 0 rgba(254,254,254,.14) !important;
+    width: 300px;
+}
