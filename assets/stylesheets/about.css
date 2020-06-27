@@ -1,9 +1,9 @@
 .ui.card.about .content .header.link-header{
-    font-size: .9em;
+    font-size: 1em;
     color: #1b1b1b;
     transition: color .25s;
     line-height: 1 !important;
-    margin-bottom: .25em;
+    margin-bottom: .15em;
 }
 
 .ui.card.about .content .header.link-header:hover, .ui.card.about .content .header.link-header:focus, .ui.card.about .content .header.link-header:active{
@@ -17,7 +17,7 @@
 .ui.card.about .content .meta .description{
     font-size: .75em;
     color: #757575;
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
 .ui.card.about .content .meta .description .link-description{
@@ -38,7 +38,7 @@
 }
 
 .ui.card>.content, .ui.cards>.card>.content{
-    padding: .7em;
+    padding: .65em;
 }
 
 .ui .slide .masked .reveal .image .link-block, .ui.card>:first-child, .ui.cards>.card>:first-child{

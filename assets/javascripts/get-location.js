@@ -170,9 +170,10 @@ const getPosition = function(position, a ,b){
 
     let configRequest = { key: myKey, lat: lat, lon: lon, user_ip: userIP, locale: 'pt', format: 'json-cors' };
 
-    $.get('https://api.hgbrasil.com/weather', configRequest)
-        .done(function(data){
-            info = data; //{"by":"gps","valid_key":true,"results":{"temp":25,"date":"20/06/2020","time":"12:42","condition_code":"32","description":"Ensolarado","currently":"dia","cid":"","city":"Gaspar, SC","img_id":"32","humidity":65,"wind_speedy":"8 km/h","sunrise":"7:04 am","sunset":"5:31 pm","condition_slug":"clear_day","city_name":"Gaspar","forecast":[{"date":"20/06","weekday":"Sáb","max":26,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"21/06","weekday":"Dom","max":27,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"22/06","weekday":"Seg","max":25,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"23/06","weekday":"Ter","max":24,"min":16,"description":"Parcialmente nublado","condition":"cloudly_day"},{"date":"24/06","weekday":"Qua","max":26,"min":16,"description":"Ensolarado com muitas nuvens","condition":"cloudly_day"},{"date":"25/06","weekday":"Qui","max":24,"min":15,"description":"Alguns chuviscos","condition":"rain"},{"date":"26/06","weekday":"Sex","max":17,"min":12,"description":"Alguns chuviscos","condition":"rain"},{"date":"27/06","weekday":"Sáb","max":15,"min":12,"description":"Alguns chuviscos","condition":"rain"},{"date":"28/06","weekday":"Dom","max":16,"min":11,"description":"Tempo nublado","condition":"cloud"},{"date":"29/06","weekday":"Seg","max":16,"min":11,"description":"Tempo nublado","condition":"cloud"}]},"execution_time":0.1,"from_cache":false};
+    // $.get('https://api.hgbrasil.com/weather', configRequest)
+    //     .done(function(data){
+                    //data;
+            info = {"by":"gps","valid_key":true,"results":{"temp":25,"date":"20/06/2020","time":"12:42","condition_code":"32","description":"Ensolarado","currently":"dia","cid":"","city":"Gaspar, SC","img_id":"32","humidity":65,"wind_speedy":"8 km/h","sunrise":"7:04 am","sunset":"5:31 pm","condition_slug":"clear_day","city_name":"Gaspar","forecast":[{"date":"20/06","weekday":"Sáb","max":26,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"21/06","weekday":"Dom","max":27,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"22/06","weekday":"Seg","max":25,"min":16,"description":"Ensolarado","condition":"clear_day"},{"date":"23/06","weekday":"Ter","max":24,"min":16,"description":"Parcialmente nublado","condition":"cloudly_day"},{"date":"24/06","weekday":"Qua","max":26,"min":16,"description":"Ensolarado com muitas nuvens","condition":"cloudly_day"},{"date":"25/06","weekday":"Qui","max":24,"min":15,"description":"Alguns chuviscos","condition":"rain"},{"date":"26/06","weekday":"Sex","max":17,"min":12,"description":"Alguns chuviscos","condition":"rain"},{"date":"27/06","weekday":"Sáb","max":15,"min":12,"description":"Alguns chuviscos","condition":"rain"},{"date":"28/06","weekday":"Dom","max":16,"min":11,"description":"Tempo nublado","condition":"cloud"},{"date":"29/06","weekday":"Seg","max":16,"min":11,"description":"Tempo nublado","condition":"cloud"}]},"execution_time":0.1,"from_cache":false};
 
             putCurrentTime();
             showInfo(info);
@@ -180,9 +181,9 @@ const getPosition = function(position, a ,b){
             setInterval(function(){
                 getPosition({ coords: { latitude: lat, longitude: lon } })
             }, 60000);
-        }).fail(function(error){
-            createError("Ocorreu uma falha ao obter a sua localização.", "<strong>Solução:</strong> recarregue a página.");
-        });
+        // }).fail(function(error){
+        //     createError("Ocorreu uma falha ao obter a sua localização.", "<strong>Solução:</strong> recarregue a página.");
+        // });
 };
 
 const createError = function(error, solutionError){
