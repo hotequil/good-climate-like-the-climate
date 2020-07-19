@@ -170,7 +170,7 @@ var getIp = function getIp() {
 
 var getLocation = function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(getPosition, createError);
+        navigator.geolocation.getCurrentPosition(getPosition, createError, { enableHighAccuracy: true });
         putText(loader, 'Esperando permissão do usuário');
         elemFocus(loader);
     } else {

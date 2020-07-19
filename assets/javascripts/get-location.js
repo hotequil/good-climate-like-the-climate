@@ -152,7 +152,7 @@ const getIp = function() {
 
 const getLocation = function(){
     if (navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(getPosition, createError);
+        navigator.geolocation.getCurrentPosition(getPosition, createError, { enableHighAccuracy: true });
         
         putText(loader, 'Esperando permissão do usuário');
         elemFocus(loader);
